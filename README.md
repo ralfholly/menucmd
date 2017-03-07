@@ -18,7 +18,7 @@ Creates the following menu
 rm -f ?
 ```
 
-Entering `2` will execute `rm -f /tmp/file2` and re-display the menu with an additional asterisk, which indicates that the first item has been processed:
+Entering `2` will execute `rm -f /tmp/file2` and re-display the menu with an additional asterisk, which indicates that the second item has been processed:
 
 ```
    1   /tmp/file1
