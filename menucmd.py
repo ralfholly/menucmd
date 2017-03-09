@@ -66,6 +66,7 @@ def show_menu(items, cmd):
             continue
 
         except EOFError:
+            print()
             break
 
         if 1 <= selection <= len(items):
