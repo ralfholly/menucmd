@@ -1,8 +1,10 @@
 README
 ======
 
+## Summary
 This little Python3 CLI tool displays a menu that allows the user to selectively execute a command on a given file list.
 
+## Usage
 Entering this command
 
 ```
@@ -28,5 +30,17 @@ Entering `2` will execute `rm -f /tmp/file2` and re-display the menu with an add
 rm -f ?
 ```
 
-The marker(s) can be cleared by entering `0`; CTRL-C aborts the menu.
+The marker(s) can be cleared by entering `0`; Pressing CTRL-C or CTRL-D aborts the menu.
 
+## My Most Important Use-Case
+I mainly use this tool to review my changes in my local Git repository. I have a little wrapper script called `gitreview` that allows me to conveniently diff my modifications:
+
+```
+~> cat ~/bin/gitreview
+#!/bin/bash
+menucmd.py git difftool -y "$@" -- $(git status --porcelain | cut -c 4-)
+
+# Show changes with `meld` diff tool:
+~> gitreview -t meld
+```
+The asterisk helps me keep track of which changes I still need to review.
