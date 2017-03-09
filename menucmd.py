@@ -65,6 +65,9 @@ def show_menu(items, cmd):
         except ValueError:
             continue
 
+        except EOFError:
+            break
+
         if 1 <= selection <= len(items):
             items[selection - 1][1] = True
             call = cmd + [items[selection - 1][0]]
