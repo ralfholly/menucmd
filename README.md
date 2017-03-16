@@ -36,11 +36,11 @@ The marker(s) can be cleared by entering `0`; Pressing CTRL-C or CTRL-D aborts t
 I mainly use this tool to review my changes in my local Git repository. I have a little wrapper script called `gitreview` that allows me to conveniently diff my modifications:
 
 ```
-~> cat ~/bin/gitreview
+~> cat ~/bin/git-review
 #!/bin/bash
 menucmd.py git difftool -y "$@" -- $(git status --porcelain | cut -c 4-)
 
 # Show changes with `meld` diff tool:
-~> gitreview -t meld
+~> git review -t meld
 ```
 The asterisk helps me keep track of which changes I still need to review.
