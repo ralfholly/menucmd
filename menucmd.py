@@ -51,11 +51,14 @@ def build_menu(items):
 
 def show_menu(items, cmd):
     selection = 0
+    items_printed = False
 
     while True:
-        print()
-        item_list = build_menu(items)
-        print(item_list)
+        if not items_printed:
+            print()
+            item_list = build_menu(items)
+            print(item_list)
+            items_printed = True
         cmd_str = " ".join(cmd)
         print(cmd_str + " ", end="", flush=True)
         try:
@@ -63,9 +66,11 @@ def show_menu(items, cmd):
             selection = int(input())
 
         except ValueError:
+            items_printed = False
             continue
 
         except EOFError:
+            assert False
             print()
             break
 
@@ -104,7 +109,9 @@ def main(args):
     items = [[item, False] for item in result[1]]
     cmd = result[0]
 
-    show_menu(items, cmd)
+    # Do nothing if no files given.
+    if len(items) > 0:
+        show_menu(items, cmd)
 
 
 if __name__ == "__main__":
