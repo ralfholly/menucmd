@@ -50,7 +50,7 @@ def build_menu(items):
 
 
 def show_menu(items, cmd):
-    selection = 0
+    selection = -1
     items_printed = False
 
     while True:
@@ -80,6 +80,9 @@ def show_menu(items, cmd):
             _ = subprocess.Popen(call)
 
         elif selection == 0:
+            break
+
+        elif selection == -1:
             for i in range(0, len(items)):
                 items[i][1] = False
 
