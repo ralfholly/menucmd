@@ -77,7 +77,7 @@ def show_menu(items, cmd):
         if 1 <= selection <= len(items):
             items[selection - 1][1] = True
             call = cmd + [items[selection - 1][0]]
-            _ = subprocess.Popen(call)
+            _ = subprocess.run(call)
 
         elif selection == 0:
             break
